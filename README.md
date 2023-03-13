@@ -64,7 +64,16 @@ may cause the conversion process to fail.
     ./build_windows.sh
     ```
 
+## Building Dictionaries
 If you have successfully built the `yomichan` binary (`yomichan-gtk` does not need to be successfully built),
 then you should be able to run the `./build_dicts.sh` script, in order to build
 all JMdict-related dictionaries.
 
+Note that you will have to set your `$GOPATH` environment variable, i.e. with:
+```bash
+export GOPATH=$HOME/go
+```
+You will also have to add the GOPATH's `bin` folder to your `$PATH` environment variable, i.e. with:
+```bash
+export PATH=$PATH:$GOPATH/bin
+```
