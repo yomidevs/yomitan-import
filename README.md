@@ -1,6 +1,6 @@
 # Yomitan Import
 
-> :wave: **This project is a community fork of yomitan-import** (which was [sunset](https://foosoft.net/posts/sunsetting-the-yomichan-project/) by its owner on Feb 26 2023).
+> :wave: **This project is a community fork of [yomichan-import](https://github.com/FooSoft/yomichan-import)** (which was [sunset](https://foosoft.net/posts/sunsetting-the-yomichan-project/) by its owner on Feb 26 2023).
 >
 > The primary goal is to **keep the project alive and working on latest browser versions and doing bugfixes**. (Feature improvements are considered secondary.)
 >
