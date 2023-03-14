@@ -1,4 +1,4 @@
-# Yomtan Import
+# Yomitan Import
 
 > :wave: **This project is a community fork of yomitan-import** (which was [sunset](https://foosoft.net/posts/sunsetting-the-yomichan-project/) by its owner on Feb 26 2023).
 >
@@ -26,6 +26,7 @@ Yomitan Import is being expanded to support other EPWING dictionaries based on u
 non-technical (although laborious) process that requires writing regular expressions and creating font tables; volunteer
 contributions are welcome.
 
+<!-- TODO: fix image with "Yomitan" -->
 ![](img/import.png)
 
 ## Installation and Usage
