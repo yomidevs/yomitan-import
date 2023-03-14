@@ -2,7 +2,7 @@
 
 > :wave: **This project is a community fork of [yomichan-import](https://github.com/FooSoft/yomichan-import)** (which was [sunset](https://foosoft.net/posts/sunsetting-the-yomichan-project/) by its owner on Feb 26 2023).
 >
-> The primary goal is to **keep the project alive and working on latest browser versions and doing bugfixes**. (Feature improvements are considered secondary.)
+> The primary goal is to **keep the project alive by providing long-term support and fixing bugs**. (Feature improvements are considered secondary.)
 >
 > Since this is a distributed effort, we highly welcome new contributors! Feel free to browse the issue tracker, and you can find us on [TheMoeWay Discord](https://discord.gg/nhqjydaR8j) at [#colab-tmw-projects](https://discord.com/channels/617136488840429598/1081538711742844980)
 
