@@ -1,9 +1,12 @@
-# Yomichan Import
+# Yomitan Import
 
-*Note: this project is no longer maintained. Please see [this
-post](https://foosoft.net/posts/sunsetting-the-yomichan-project/) for more information.*
+> :wave: **This project is a community fork of [yomichan-import](https://github.com/FooSoft/yomichan-import)** (which was [sunset](https://foosoft.net/posts/sunsetting-the-yomichan-project/) by its owner on Feb 26 2023).
+>
+> The primary goal is to **keep the project alive by providing long-term support and fixing bugs**. (Feature improvements are considered secondary.)
+>
+> Since this is a distributed effort, we highly welcome new contributors! Feel free to browse the issue tracker, and you can find us on [TheMoeWay Discord](https://discord.gg/nhqjydaR8j) at [#colab-tmw-projects](https://discord.com/channels/617136488840429598/1081538711742844980)
 
-Yomichan Import allows users of the [Yomichan](https://foosoft.net/projects/yomichan) extension to import custom
+Yomitan Import allows users of the [Yomitan](https://github.com/themoeway/yomitan) extension to import custom
 dictionary files. It currently supports the following formats:
 
 *   [JMdict XML](http://www.edrdg.org/jmdict/edict_doc.html)
@@ -19,23 +22,24 @@ dictionary files. It currently supports the following formats:
     *   [Kojien](https://ja.wikipedia.org/wiki/%E5%BA%83%E8%BE%9E%E8%8B%91) (広辞苑第六版 &bull; 付属資料)
     *   [Gakken](https://ja.wikipedia.org/wiki/%E5%AD%A6%E7%A0%94%E3%83%9B%E3%83%BC%E3%83%AB%E3%83%87%E3%82%A3%E3%83%B3%E3%82%B0%E3%82%B9) (学研国語大辞典 &bull; 古語辞典 &bull; 故事ことわざ辞典 &bull; 学研漢和大字典)
 
-Yomichan Import is being expanded to support other EPWING dictionaries based on user demand. This is a mostly
+Yomitan Import is being expanded to support other EPWING dictionaries based on user demand. This is a mostly
 non-technical (although laborious) process that requires writing regular expressions and creating font tables; volunteer
 contributions are welcome.
 
+<!-- TODO: fix image with "Yomitan" -->
 ![](img/import.png)
 
 ## Installation and Usage
 
-Follow the steps outlined below to import your custom dictionary into Yomichan:
+Follow the steps outlined below to import your custom dictionary into Yomitan:
 
 1.  Download a pre-built binary for Linux, Mac OS X or Windows from the [project
-    page](https://github.com/FooSoft/yomichan-import/releases).
+    page](https://github.com/themoeway/yomitan-import/releases).
 2.  Launch the `yomichan-gtk` executable after extracting the entire archive (or `yomichan` from the command line).
 3.  Specify the source path of the dictionary you wish to convert.
 4.  Specify the target path of the dictionary ZIP archive that you wish to create.
 5.  Press the button labeled *Import dictionary...* and wait for processing to complete.
-6.  On the Yomichan options page, browse to the dictionary ZIP archive file you created.
+6.  On the Yomitan options page, browse to the dictionary ZIP archive file you created.
 7.  Wait for the import progress to complete before closing the options page.
 
 **Notice**: When converting EPWING dictionaries on Windows, it is important that the dictionary path you provide does
