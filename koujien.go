@@ -1,10 +1,10 @@
-package yomichan
+package yomitan
 
 import (
 	"regexp"
 	"strings"
 
-	zig "foosoft.net/projects/zero-epwing-go"
+	zig "github.com/themoeway/zero-epwing-go"
 )
 
 type koujienExtractor struct {
