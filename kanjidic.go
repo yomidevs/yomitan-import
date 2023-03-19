@@ -4,7 +4,7 @@ import (
 	"os"
 	"strconv"
 
-	"github.com/themoeway/jmdict-go"
+	jmdict "github.com/themoeway/jmdict-go"
 )
 
 func kanjidicExtractKanji(entry jmdict.KanjidicCharacter, language string) *dbKanji {

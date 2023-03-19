@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 go get github.com/themoeway/yomitan-import/tree/master/yomitan
 

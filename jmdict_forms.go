@@ -4,7 +4,7 @@ import (
 	"os"
 	"strings"
 
-	"github.com/themoeway/jmdict-go"
+	jmdict "github.com/themoeway/jmdict-go"
 	"golang.org/x/exp/slices"
 )
 
