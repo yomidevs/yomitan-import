@@ -1,4 +1,4 @@
-package yomichan
+package yomitan
 
 import (
 	"fmt"
@@ -6,7 +6,7 @@ import (
 	"strconv"
 	"strings"
 
-	zig "foosoft.net/projects/zero-epwing-go"
+	zig "github.com/themoeway/zero-epwing-go"
 )
 
 type epwingExtractor interface {

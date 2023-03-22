@@ -1,10 +1,10 @@
-package yomichan
+package yomitan
 
 import (
 	"fmt"
 	"strconv"
 
-	"foosoft.net/projects/jmdict"
+	jmdict "github.com/themoeway/jmdict-go"
 )
 
 func glossaryContainsLanguage(glossary []jmdict.JmdictGlossary, language string) bool {

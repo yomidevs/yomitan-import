@@ -1,4 +1,4 @@
-package yomichan
+package yomitan
 
 type contentAttr struct {
 	lang               string

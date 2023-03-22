@@ -7,7 +7,7 @@ import (
 	"github.com/andlabs/ui"
 	_ "github.com/andlabs/ui/winmanifest"
 
-	yomichan "foosoft.net/projects/yomichan-import"
+	yomitan "github.com/themoeway/yomitan-import"
 )
 
 func main() {
@@ -27,10 +27,10 @@ func main() {
 		importButton := ui.NewButton("Import dictionary...")
 
 		titleEntry := ui.NewEntry()
-		titleEntry.SetText(yomichan.DefaultTitle)
+		titleEntry.SetText(yomitan.DefaultTitle)
 
 		languageEntry := ui.NewEntry()
-		languageEntry.SetText(yomichan.DefaultLanguage)
+		languageEntry.SetText(yomitan.DefaultLanguage)
 
 		mainBox := ui.NewVerticalBox()
 		mainBox.Append(ui.NewLabel("Path to dictionary source (CATALOGS file for EPWING)"), false)
@@ -44,7 +44,7 @@ func main() {
 		mainBox.Append(ui.NewVerticalBox(), true)
 		mainBox.Append(importButton, false)
 
-		window := ui.NewWindow("Yomichan Import", 640, 280, false)
+		window := ui.NewWindow("Yomitan Import", 640, 280, false)
 		window.SetMargined(true)
 		window.SetChild(mainBox)
 
@@ -97,14 +97,14 @@ func main() {
 			}
 
 			go func() {
-				err := yomichan.ExportDb(
+				err := yomitan.ExportDb(
 					inputPath,
 					outputPath,
-					yomichan.DefaultFormat,
+					yomitan.DefaultFormat,
 					languageEntry.Text(),
 					titleEntry.Text(),
-					yomichan.DefaultStride,
-					yomichan.DefaultPretty,
+					yomitan.DefaultStride,
+					yomitan.DefaultPretty,
 				)
 
 				ui.QueueMain(func() {

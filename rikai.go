@@ -1,4 +1,4 @@
-package yomichan
+package yomitan
 
 import (
 	"database/sql"
