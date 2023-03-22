@@ -1,4 +1,4 @@
-package yomichan
+package yomitan
 
 import (
 	"fmt"
@@ -6,7 +6,7 @@ import (
 	"regexp"
 	"strconv"
 
-	"foosoft.net/projects/jmdict"
+	jmdict "github.com/themoeway/jmdict-go"
 	"golang.org/x/exp/slices"
 )
 
@@ -235,7 +235,7 @@ func extractHeadwords(entry jmdict.JmdictEntry) []headword {
 	if allKanjiAreIrregular {
 		// Adding the reading-only terms before kanji+reading
 		// terms here for the sake of the Index property,
-		// which affects the yomichan term ranking.
+		// which affects the yomitan term ranking.
 		for _, reading := range entry.Readings {
 			h := newHeadword(nil, &reading)
 			h.Index = len(headwords)

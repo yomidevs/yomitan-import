@@ -1,10 +1,10 @@
-package yomichan
+package yomitan
 
 import (
 	"os"
 	"regexp"
 
-	"foosoft.net/projects/jmdict"
+	jmdict "github.com/themoeway/jmdict-go"
 )
 
 func jmnedictPublicationDate(dictionary jmdict.Jmnedict) string {

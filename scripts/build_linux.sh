@@ -1,14 +1,14 @@
 #!/bin/bash
 
 mkdir -p dst
-mkdir -p yomichan-import
+mkdir -p yomitan-import
 
-go build foosoft.net/projects/yomichan-import/yomichan
-go build foosoft.net/projects/yomichan-import/yomichan-gtk
+go build github.com/themoeway/yomitan-import/tree/master/yomichan
+go build github.com/themoeway/yomitan-import/tree/master/yomichan-gtk
 
-mv yomichan yomichan-import
-mv yomichan-gtk yomichan-import
+mv yomitan yomitan-import
+mv yomitan-gtk yomitan-import
 
-tar czvf dst/yomichan-import_linux.tar.gz yomichan-import
+tar czvf dst/yomitan-import_linux.tar.gz yomitan-import
 
-rm -rf yomichan-import
+rm -rf yomitan-import
