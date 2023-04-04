@@ -23,7 +23,7 @@ const (
 
 	langMarker    = "'🌐 '"
 	noteMarker    = "'📝 '"
-	infoMarker    = "'ℹ️ '"
+	infoMarker    = "disc"
 	refMarker     = "'➡️ '"
 	antonymMarker = "'🔄 '"
 )

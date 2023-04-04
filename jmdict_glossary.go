@@ -154,7 +154,8 @@ func makeExampleListItem(sentence jmdict.JmdictExampleSentence) any {
 	} else {
 		attr := contentAttr{
 			lang:          ISOtoHTML[sentence.Lang],
-			listStyleType: ISOtoFlag[sentence.Lang],
+			listStyleType: "none",
+			fontSize:      "60%",
 		}
 		return contentListItem(attr, sentence.Text)
 	}
@@ -277,7 +278,7 @@ func createGlossaryContent(sense jmdict.JmdictSense, meta jmdictMetadata) any {
 		}
 	}
 	if len(exampleListItems) > 0 {
-		attr := listAttr(ISOtoHTML["jpn"], ISOtoFlag["jpn"], "examples")
+		attr := listAttr(ISOtoHTML["jpn"], "square", "examples")
 		list := contentUnorderedList(attr, exampleListItems...)
 		glossaryContents = append(glossaryContents, list)
 	}

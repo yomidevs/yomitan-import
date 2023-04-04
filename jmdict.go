@@ -121,6 +121,7 @@ func jmdictSearchTerm(headword headword, entry jmdict.JmdictEntry, meta jmdictMe
 
 	term := dbTerm{
 		Expression: headword.Expression,
+		Reading:    headword.Reading,  // empty string
 		Sequence:   -entry.Sequence,
 	}
 
