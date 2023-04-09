@@ -155,7 +155,7 @@ func makeExampleListItem(sentence jmdict.JmdictExampleSentence) any {
 		attr := contentAttr{
 			lang:          ISOtoHTML[sentence.Lang],
 			listStyleType: "none",
-			fontSize:      "60%",
+			fontSize:      "70%",
 		}
 		return contentListItem(attr, sentence.Text)
 	}
