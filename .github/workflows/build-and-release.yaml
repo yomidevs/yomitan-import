@@ -43,7 +43,7 @@ jobs:
           mkdir -p "$build_dir"
 
           # Compile the Go project for the current platform
-          go build -o "$build_dir" ./yomitan-import
+          go build -o "$build_dir" ./yomitan
           go build -o "$build_dir" ./yomitan-gtk
 
       - name: Upload Release Artifacts
