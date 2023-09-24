@@ -25,18 +25,15 @@ jobs:
           go-version: ${{ matrix.go-version }}
         id: go
 
-      # - name: Build and Publish
-      #   run: |
-      #     # Compile the Go project for the current platform
-      #     go build -o myapp
+      - name: Install Linux Packages
+        if: matrix.os == 'ubuntu-latest'
+        run: |
+          sudo apt-get update
+          sudo apt-get install libgtk-3-dev -y
+          # Add other necessary packages if needed
 
-      #     # Create a release directory
-      #     mkdir -p release
-
-      #     # Move the compiled binary to the release directory
-      #     mv myapp release/myapp-${{ matrix.os }}
-      - name: Build
-        # if: matrix.os == 'ubuntu-latest'
+      - name: Build Linux
+        if: matrix.os == 'ubuntu-latest'
         run: |
           # Create build directory
           build_dir="yomitan-import_${{ matrix.os }}"
@@ -44,7 +41,18 @@ jobs:
 
           # Compile the Go project for the current platform
           go build -o "$build_dir" ./yomitan
-          # go build -o "$build_dir" ./yomitan-gtk
+          go build -o "$build_dir" ./yomitan-gtk
+
+      - name: Build Windows
+        if: matrix.os == 'windows-latest'
+        run: |
+          # Create build directory
+          build_dir="yomitan-import_${{ matrix.os }}"
+          mkdir -p "$build_dir"
+
+          # Compile the Go project for the current platform
+          go build -o "$build_dir" ./yomitan
+          go build -o "$build_dir" ./yomitan-gtk
 
       - name: Upload Release Artifacts
         uses: actions/upload-artifact@v3.1.2
