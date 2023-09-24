@@ -3,7 +3,7 @@ name: Build and Release
 on:
   push:
     # branches:
-    #   - main  # Modify this to match your main branch
+    #   - main  # Modify this to match your main branch 
 
 jobs:
   build-publish:
