@@ -49,14 +49,15 @@ jobs:
           # Set up environment variables
           export CXX=x86_64-w64-mingw32-g++.exe
           export CC=x86_64-w64-mingw32-gcc.exe
-          
+
           # Create build directory
-          $build_dir="yomitan-import_${{ matrix.os }}"
+          build_dir="yomitan-import_${{ matrix.os }}"
           mkdir -p "$build_dir"
 
           # Compile the Go project for the current platform
           go build -o "$build_dir" ./yomitan
           go build -ldflags="-H windowsgui" -o "$build_dir" ./yomitan-gtk
+        shell: sh
 
       - name: Upload Release Artifacts
         uses: actions/upload-artifact@v3
