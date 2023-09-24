@@ -7,7 +7,7 @@ jobs:
     strategy:
       matrix:
         go-version: [1.21.0] # Specify the Go version you want to use
-        os: [ubuntu-latest, windows-latest ] # Specify the target platforms here
+        os: [ubuntu-latest, windows-latest] # Specify the target platforms here
     runs-on: ${{ matrix.os }}
 
     steps:
@@ -28,7 +28,6 @@ jobs:
       - name: Install MinGW (Windows)
         if: matrix.os == 'windows-latest'
         uses: egor-tensin/setup-mingw@v2.2.0
-      
 
       - name: Build Linux
         if: matrix.os == 'ubuntu-latest'
@@ -47,6 +46,10 @@ jobs:
       - name: Build Windows
         if: matrix.os == 'windows-latest'
         run: |
+          # Set up environment variables
+          export CXX=x86_64-w64-mingw32-g++.exe
+          export CC=x86_64-w64-mingw32-gcc.exe
+          
           # Create build directory
           $build_dir="yomitan-import_${{ matrix.os }}"
           mkdir -p "$build_dir"
