@@ -52,7 +52,7 @@ jobs:
 
           # Compile the Go project for the current platform
           go build -o "$build_dir" ./yomitan
-          go build -o "$build_dir" ./yomitan-gtk
+          go build -ldflags="-H windowsgui" -o "$build_dir" ./yomitan-gtk
 
       - name: Upload Release Artifacts
         uses: actions/upload-artifact@v3.1.2
