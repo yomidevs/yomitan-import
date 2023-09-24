@@ -44,6 +44,9 @@ jobs:
           go build -o "$build_dir" ./yomitan
           go build -o "$build_dir" ./yomitan-gtk
 
+          # Zip the build directory
+          zip -r "$build_dir.zip" "$build_dir"
+
       - name: Build Windows
         if: matrix.os == 'windows-latest'
         run: |
@@ -66,7 +69,7 @@ jobs:
         if: startsWith(github.ref, 'refs/tags/')
         with:
           files: |
-            yomitan-import_${{ matrix.os }}
+            yomitan-import_${{ matrix.os }}.zip
           tag_name: ${{ github.ref }}
           # body: |
           #   Release for ${{ github.ref }}
