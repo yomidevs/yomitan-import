@@ -1,4 +1,4 @@
-name: Build and Publish Go Project
+name: Build and Release
 
 on:
   push:
@@ -13,7 +13,6 @@ jobs:
       matrix:
         go-version: [1.21.0]  # Specify the Go version you want to use
         os: [ubuntu-latest]  # Specify the target platforms here
-        # os: [ubuntu-latest, windows-latest, macOS-latest]  # Specify the target platforms here
     runs-on: ${{ matrix.os }}
 
 
@@ -61,7 +60,19 @@ jobs:
         with: 
           name: yomitan-import_${{ matrix.os }}
           path: yomitan-import_${{ matrix.os }}
-
+      # Publish to GitHub Releases
+      - name: Release on Tag Creation
+        uses: softprops/action-gh-release@v1
+        if: startsWith(github.ref, 'refs/tags/')
+        with:
+          files: |
+            yomitan-import_${{ matrix.os }}
+          tag_name: ${{ github.ref }}
+          # body: |
+          #   Release for ${{ github.ref }}
+          draft: true
+          prerelease: false
+          token: ${{ secrets.GITHUB_TOKEN }}
 
       # Publish the compiled binary as a GitHub release asset
       # - name: Upload Release Asset
