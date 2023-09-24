@@ -7,13 +7,15 @@ on:
 
 jobs:
   build-publish:
-    runs-on: ubuntu-latest  # You can change the runner OS if needed
+    # runs-on: ubuntu-latest  # You can change the runner OS if needed
 
     strategy:
       matrix:
         go-version: [1.21.0]  # Specify the Go version you want to use
-        os: [ubuntu-latest, windows-latest]  # Specify the target platforms here
+        os: [ubuntu-latest]  # Specify the target platforms here
         # os: [ubuntu-latest, windows-latest, macOS-latest]  # Specify the target platforms here
+    runs-on: ${{ matrix.os }}
+
 
     steps:
       - name: Checkout Code
