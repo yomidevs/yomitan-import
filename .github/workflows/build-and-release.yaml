@@ -2,8 +2,8 @@ name: Build and Publish Go Project
 
 on:
   push:
-    branches:
-      - main  # Modify this to match your main branch
+    # branches:
+    #   - main  # Modify this to match your main branch
 
 jobs:
   build-publish:
