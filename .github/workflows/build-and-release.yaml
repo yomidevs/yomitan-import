@@ -46,8 +46,8 @@ jobs:
           mkdir -p yomitan-import_${{ matrix.os }}
 
           # Move the compiled binaries to the release directory
-          mv yomichan yomitan-import_linux/yomichan
-          mv yomichan-gtk yomitan-import_linux/yomichan-gtk
+          mv yomichan yomitan-import_${{ matrix.os }}
+          mv yomichan-gtk yomitan-import_${{ matrix.os }}
 
       - name: Upload Release Artifacts
         uses: actions/upload-artifact@v3.1.2
