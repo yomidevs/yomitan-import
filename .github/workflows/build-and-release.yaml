@@ -25,6 +25,11 @@ jobs:
         run: |
           sudo apt-get install libgtk-3-dev -y
 
+      - name: Install MinGW (Windows)
+        if: matrix.os == 'windows-latest'
+        uses: egor-tensin/setup-mingw@v2.2.0
+      
+
       - name: Build Linux
         if: matrix.os == 'ubuntu-latest'
         run: |
@@ -43,7 +48,7 @@ jobs:
         if: matrix.os == 'windows-latest'
         run: |
           # Create build directory
-          build_dir="yomitan-import_${{ matrix.os }}"
+          $build_dir="yomitan-import_${{ matrix.os }}"
           mkdir -p "$build_dir"
 
           # Compile the Go project for the current platform
