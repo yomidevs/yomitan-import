@@ -54,6 +54,7 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           path: yomitan-import_${{ matrix.os }}.zip
+          name: yomitan-import_${{ matrix.os }}
 
       - name: Release on Tag Creation
         uses: softprops/action-gh-release@v1
