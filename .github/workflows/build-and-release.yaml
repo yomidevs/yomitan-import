@@ -36,7 +36,7 @@ jobs:
           build_dir="yomitan-import_${{ matrix.os }}"
           mkdir -p "$build_dir"
 
-          # Compile the Go project for the current platform
+          # Build
           go build -o "$build_dir" ./yomitan
           go build -o "$build_dir" ./yomitan-gtk
 
@@ -54,7 +54,7 @@ jobs:
           build_dir="yomitan-import_${{ matrix.os }}"
           mkdir -p "$build_dir"
 
-          # Compile the Go project for the current platform
+          # Build
           go build -o "$build_dir" ./yomitan
           go build -ldflags="-H windowsgui" -o "$build_dir" ./yomitan-gtk
         shell: sh
