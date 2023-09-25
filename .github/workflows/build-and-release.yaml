@@ -4,12 +4,7 @@ on: push
 
 jobs:
   build-publish:
-    strategy:
-      matrix:
-        go-version: [1.21.0] # Specify the Go version you want to use
-        os: [ubuntu-latest] # Specify the target platforms here
-    runs-on: ${{ matrix.os }}
-
+    runs-on: ubuntu-latest
     steps:
       - name: Checkout Code
         uses: actions/checkout@v4
@@ -17,23 +12,17 @@ jobs:
       - name: Set up Go
         uses: actions/setup-go@v4
         with:
-          go-version: ${{ matrix.go-version }}
+          go-version: 1.21.0
         id: go
 
-      - name: Install Linux Packages
-        if: matrix.os == 'ubuntu-latest'
+      - name: Install Packages
         run: |
           sudo apt-get install libgtk-3-dev -y
 
-      - name: Install MinGW (Windows)
-        if: matrix.os == 'windows-latest'
-        uses: egor-tensin/setup-mingw@v2.2.0
-
-      - name: Build Linux
-        if: matrix.os == 'ubuntu-latest'
+      - name: Build for Linux
         run: |
           # Create build directory
-          build_dir="yomitan-import_${{ matrix.os }}"
+          build_dir="yomitan-import-linux"
           mkdir -p "$build_dir"
 
           # Build
@@ -46,14 +35,14 @@ jobs:
       - name: Upload Release Artifacts
         uses: actions/upload-artifact@v3
         with:
-          path: yomitan-import_${{ matrix.os }}.zip
-          name: yomitan-import_${{ matrix.os }}
+          path: yomitan-import-linux.zip
+          name: yomitan-import-linux
 
       - name: Release on Tag Creation
         uses: softprops/action-gh-release@v1
         if: startsWith(github.ref, 'refs/tags/')
         with:
           files: |
-            yomitan-import_${{ matrix.os }}.zip
+            yomitan-import-linux.zip
           draft: true
           token: ${{ secrets.GITHUB_TOKEN }}
