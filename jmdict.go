@@ -64,7 +64,13 @@ func doDisplaySenseNumberTag(headword headword, entry jmdict.JmdictEntry, meta j
 
 func jmdictPublicationDate(dictionary jmdict.Jmdict) string {
 	unknownDate := "unknown"
-	idx := len(dictionary.Entries) - 1
+	idx := -1
+	for i, entry := range dictionary.Entries {
+		if entry.Sequence == 9999999 {
+			idx = i
+			break
+		}
+	}
 	if len(dictionary.Entries) == 0 {
 		return unknownDate
 	} else if len(dictionary.Entries[idx].Sense) == 0 {
