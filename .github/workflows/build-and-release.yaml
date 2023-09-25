@@ -7,7 +7,7 @@ jobs:
     strategy:
       matrix:
         go-version: [1.21.0] # Specify the Go version you want to use
-        os: [ubuntu-latest, windows-latest] # Specify the target platforms here
+        os: [ubuntu-latest] # Specify the target platforms here
     runs-on: ${{ matrix.os }}
 
     steps:
@@ -42,22 +42,6 @@ jobs:
 
           # Zip the build directory
           zip -r "$build_dir.zip" "$build_dir"
-
-      - name: Build Windows
-        if: matrix.os == 'windows-latest'
-        run: |
-          # Set up environment variables
-          export CXX=x86_64-w64-mingw32-g++.exe
-          export CC=x86_64-w64-mingw32-gcc.exe
-
-          # Create build directory
-          build_dir="yomitan-import_${{ matrix.os }}"
-          mkdir -p "$build_dir"
-
-          # Build
-          go build -o "$build_dir" ./yomitan
-          go build -ldflags="-H windowsgui" -o "$build_dir" ./yomitan-gtk
-        shell: sh
 
       - name: Upload Release Artifacts
         uses: actions/upload-artifact@v3
