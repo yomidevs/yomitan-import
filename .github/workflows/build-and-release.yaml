@@ -1,0 +1,48 @@
+name: Build and Release
+
+on: push
+
+jobs:
+  build-publish:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Set up Go
+        uses: actions/setup-go@v4
+        with:
+          go-version: 1.21.0
+        id: go
+
+      - name: Install Packages
+        run: |
+          sudo apt-get install libgtk-3-dev -y
+
+      - name: Build for Linux
+        run: |
+          # Create build directory
+          build_dir="yomitan-import-linux"
+          mkdir -p "$build_dir"
+
+          # Build
+          go build -o "$build_dir" ./yomitan
+          go build -o "$build_dir" ./yomitan-gtk
+
+          # Zip the build directory
+          zip -r "$build_dir.zip" "$build_dir"
+
+      - name: Upload Release Artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          path: yomitan-import-linux.zip
+          name: yomitan-import-linux
+
+      - name: Release on Tag Creation
+        uses: softprops/action-gh-release@v1
+        if: startsWith(github.ref, 'refs/tags/')
+        with:
+          files: |
+            yomitan-import-linux.zip
+          draft: true
+          token: ${{ secrets.GITHUB_TOKEN }}
