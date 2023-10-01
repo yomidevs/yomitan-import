@@ -46,3 +46,6 @@ Follow the steps outlined below to import your custom dictionary into Yomitan:
 not contain non-ASCII characters (including Japanese characters). This problem is due to the fact that the EPWING
 library used does not support such paths. Attempts to convert dictionaries stored in paths containing illegal characters
 may cause the conversion process to fail.
+
+## Related Projects
+- [stephenmk/jitenbot](https://github.com/stephenmk/jitenbot): A program for scraping Japanese dictionary websites and compiling the scraped data into compact dictionary file formats, including Yomitan dictionaries.
