@@ -45,4 +45,5 @@ jobs:
           files: |
             yomitan-import-linux.zip
           draft: true
+          generate_release_notes: true
           token: ${{ secrets.GITHUB_TOKEN }}
