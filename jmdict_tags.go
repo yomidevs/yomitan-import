@@ -64,6 +64,7 @@ func customDbTags() []dbTag {
 	return []dbTag{
 		dbTag{Name: priorityTagName, Order: -10, Score: 10, Category: "popular", Notes: "high priority term"},
 		dbTag{Name: rareKanjiTagName, Order: 0, Score: -5, Category: "archaism", Notes: "rarely-used kanji form of this expression"},
+		dbTag{Name: rareKanaTagName, Order: 0, Score: -5, Category: "archaism", Notes: "rarely-used kana form of this expression"},
 		dbTag{Name: irregularTagName, Order: 0, Score: -5, Category: "archaism", Notes: "irregular form of this expression"},
 		dbTag{Name: outdatedTagName, Order: 0, Score: -5, Category: "archaism", Notes: "outdated form of this expression"},
 		dbTag{Name: "ichi", Order: -2, Score: 0, Category: "frequent", Notes: "included in Ichimango Goi Bunruishuu (１万語語彙分類集)"},
@@ -82,6 +83,7 @@ func knownEntityTags() []dbTag {
 		dbTag{Name: "gikun", Order: 0, Score: 0, Category: ""}, // gikun (meaning as reading) or jukujikun (special kanji reading)
 		dbTag{Name: "ik", Order: 0, Score: -5, Category: ""},   // word containing irregular kana usage
 		dbTag{Name: "ok", Order: 0, Score: -5, Category: ""},   // out-dated or obsolete kana usage
+		dbTag{Name: "rk", Order: 0, Score: -5, Category: ""},   // rarely used kana form
 		dbTag{Name: "sk", Order: 0, Score: -5, Category: ""},   // search-only kana form
 
 		// <ke_inf> kanji info

@@ -19,6 +19,7 @@ type headword struct {
 	IsFrequent   bool
 	IsIrregular  bool
 	IsOutdated   bool
+	IsRareKana   bool
 	IsRareKanji  bool
 	IsSearchOnly bool
 	IsAteji      bool
@@ -79,6 +80,9 @@ func (h *headword) Score() int {
 	if h.IsOutdated {
 		score -= 5
 	}
+	if h.IsRareKana {
+		score -= 5
+	}
 	if h.IsRareKanji {
 		score -= 5
 	}
@@ -122,6 +126,8 @@ func (h *headword) SetFlags(infoTags, freqTags []string) {
 			h.IsIrregular = true
 		case "oK", "ok":
 			h.IsOutdated = true
+		case "rk":
+			h.IsRareKana = true
 		case "sK", "sk":
 			h.IsSearchOnly = true
 		case "rK":
@@ -174,6 +180,9 @@ func (h *headword) SetTermTags(freqTags []string) {
 	}
 	if h.IsOutdated {
 		h.TermTags = append(h.TermTags, outdatedTagName)
+	}
+	if h.IsRareKana {
+		h.TermTags = append(h.TermTags, rareKanaTagName)
 	}
 	if h.IsRareKanji {
 		h.TermTags = append(h.TermTags, rareKanjiTagName)

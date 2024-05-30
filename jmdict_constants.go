@@ -16,6 +16,7 @@ const (
 
 	priorityTagName  = "⭐"
 	rareKanjiTagName = "R"
+	rareKanaTagName = "r"
 	irregularTagName = "⚠️"
 	outdatedTagName  = "⛬"
 	atejiTagName     = "ateji"
