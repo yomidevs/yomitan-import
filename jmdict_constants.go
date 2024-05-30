@@ -114,6 +114,7 @@ var langCodeToName = map[LangCode]string{
 	LangCode{"eng", "kor"}: "Korean",
 	LangCode{"eng", "kur"}: "Kurdish",
 	LangCode{"eng", "lat"}: "Latin",
+	LangCode{"eng", "lit"}: "Lithuanian",
 	LangCode{"eng", "mal"}: "Malayalam",
 	LangCode{"eng", "mao"}: "Maori",
 	LangCode{"eng", "may"}: "Malay",
@@ -142,6 +143,7 @@ var langCodeToName = map[LangCode]string{
 	LangCode{"eng", "tur"}: "Turkish",
 	LangCode{"eng", "ukr"}: "Ukrainian",
 	LangCode{"eng", "urd"}: "Urdu",
+	LangCode{"eng", "uzb"}: "Uzbek",
 	LangCode{"eng", "vie"}: "Vietnamese",
 	LangCode{"eng", "yid"}: "Yiddish",
 }
@@ -186,6 +188,7 @@ var ISOtoHTML = map[string]string{
 	"kor": "ko",  // Korean
 	"kur": "ku",  // Kurdish
 	"lat": "la",  // Latin
+	"lit": "lt",  // Latin
 	"mal": "ml",  // Malayalam
 	"mao": "mi",  // Maori
 	"may": "ms",  // Malay
@@ -214,6 +217,7 @@ var ISOtoHTML = map[string]string{
 	"tur": "tr",  // Turkish
 	"ukr": "uk",  // Ukrainian
 	"urd": "ur",  // Urdu
+	"uzb": "uz",  // Uzbek
 	"vie": "vi",  // Vietnamese
 	"yid": "yi",  // Yiddish
 }
