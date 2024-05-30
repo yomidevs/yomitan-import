@@ -188,7 +188,7 @@ var ISOtoHTML = map[string]string{
 	"kor": "ko",  // Korean
 	"kur": "ku",  // Kurdish
 	"lat": "la",  // Latin
-	"lit": "lt",  // Latin
+	"lit": "lt",  // Lithuanian
 	"mal": "ml",  // Malayalam
 	"mao": "mi",  // Maori
 	"may": "ms",  // Malay
