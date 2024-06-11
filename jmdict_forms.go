@@ -13,8 +13,8 @@ func (h *headword) InfoSymbols() string {
 	if h.IsPriority {
 		infoSymbols = append(infoSymbols, prioritySymbol)
 	}
-	if h.IsRareKanji {
-		infoSymbols = append(infoSymbols, rareKanjiSymbol)
+	if h.IsRareKanji || h.IsRareKana {
+		infoSymbols = append(infoSymbols, rareFormSymbol)
 	}
 	if h.IsIrregular {
 		infoSymbols = append(infoSymbols, irregularSymbol)
