@@ -21,16 +21,14 @@ jobs:
 
       - name: Build for Linux
         run: |
-          # Create build directory
-          build_dir="yomitan-import-linux"
-          mkdir -p "$build_dir"
+          ./scripts/build_linux.sh
 
-          # Build
-          go build -o "$build_dir" ./yomitan
-          go build -o "$build_dir" ./yomitan-gtk
+      - name: Set up MinGW
+        uses: egor-tensin/setup-mingw@v2
 
-          # Zip the build directory
-          zip -r "$build_dir.zip" "$build_dir"
+      - name: Build for Windows
+        run: |
+          ./scripts/build_windows.sh
 
       - name: Upload Release Artifacts
         uses: actions/upload-artifact@v3
@@ -38,12 +36,19 @@ jobs:
           path: yomitan-import-linux.zip
           name: yomitan-import-linux
 
+      - name: Upload Release Artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          path: yomitan-import-windows.zip
+          name: yomitan-import-windows
+
       - name: Release on Tag Creation
         uses: softprops/action-gh-release@v1
         if: startsWith(github.ref, 'refs/tags/')
         with:
           files: |
             yomitan-import-linux.zip
+            yomitan-import-windows.zip
           draft: true
           generate_release_notes: true
           token: ${{ secrets.GITHUB_TOKEN }}
