@@ -1,16 +1,10 @@
 #!/bin/bash
 
-mkdir -p dst
-mkdir -p yomichan-import
+build_dir="yomitan-import-windows"
 
-export CXX=x86_64-w64-mingw32-g++.exe
-export CC=x86_64-w64-mingw32-gcc.exe
-go build foosoft.net/projects/yomichan-import/yomichan
-go build -ldflags="-H windowsgui" foosoft.net/projects/yomichan-import/yomichan-gtk
+mkdir -p "$build_dir"
 
-mv yomichan.exe yomichan-import
-mv yomichan-gtk.exe yomichan-import
+CGO_ENABLED=1 CC=/usr/bin/i686-w64-mingw32-g++ GOOS=windows OARCH=x64 go build -o "yomitan-import-windows" ./yomitan
+CGO_ENABLED=1 CC=/usr/bin/i686-w64-mingw32-g++ GOOS=windows OARCH=x64 go build -o "yomitan-import-windows" ./yomitan-gtk
 
-7za a yomichan-import_windows.zip yomichan-import
-
-rm -rf yomichan-import
+zip -r "$build_dir.zip" "$build_dir"

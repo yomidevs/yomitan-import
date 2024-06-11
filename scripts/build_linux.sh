@@ -1,14 +1,10 @@
 #!/bin/bash
 
-mkdir -p dst
-mkdir -p yomitan-import
+build_dir="yomitan-import-linux"
 
-go build github.com/themoeway/yomitan-import/tree/master/yomichan
-go build github.com/themoeway/yomitan-import/tree/master/yomichan-gtk
+mkdir -p "$build_dir"
 
-mv yomitan yomitan-import
-mv yomitan-gtk yomitan-import
+go build -o "yomitan-import-linux" ./yomitan
+go build -o "yomitan-import-linux" ./yomitan-gtk
 
-tar czvf dst/yomitan-import_linux.tar.gz yomitan-import
-
-rm -rf yomitan-import
+zip -r "$build_dir.zip" "$build_dir"
