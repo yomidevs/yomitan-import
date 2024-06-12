@@ -10,33 +10,38 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Set up Go
-        uses: actions/setup-go@v4
+        uses: actions/setup-go@v5
         with:
           go-version: 1.21.0
         id: go
 
+      - name: Set up MinGW
+        uses: egor-tensin/setup-mingw@v2
+
       - name: Install Packages
         run: |
           sudo apt-get install libgtk-3-dev -y
+          sudo apt-get install libz-mingw-w64-dev
 
       - name: Build for Linux
         run: |
-          # Create build directory
-          build_dir="yomitan-import-linux"
-          mkdir -p "$build_dir"
+          ./scripts/build_linux.sh
 
-          # Build
-          go build -o "$build_dir" ./yomitan
-          go build -o "$build_dir" ./yomitan-gtk
-
-          # Zip the build directory
-          zip -r "$build_dir.zip" "$build_dir"
-
-      - name: Upload Release Artifacts
-        uses: actions/upload-artifact@v3
+      - name: Upload Linux Artifact
+        uses: actions/upload-artifact@v4
         with:
-          path: yomitan-import-linux.zip
+          path: yomitan-import-linux
           name: yomitan-import-linux
+
+      - name: Build for Windows
+        run: |
+          ./scripts/build_windows.sh
+
+      - name: Upload Windows Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          path: yomitan-import-windows
+          name: yomitan-import-windows
 
       - name: Release on Tag Creation
         uses: softprops/action-gh-release@v1
@@ -44,6 +49,7 @@ jobs:
         with:
           files: |
             yomitan-import-linux.zip
+            yomitan-import-windows.zip
           draft: true
           generate_release_notes: true
           token: ${{ secrets.GITHUB_TOKEN }}
