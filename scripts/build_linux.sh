@@ -1,7 +1,6 @@
 #!/bin/bash
 
 build_dir="yomitan-import-linux"
-
 mkdir -p "$build_dir"
 
 go build -o "yomitan-import-linux" ./yomitan
