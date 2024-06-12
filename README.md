@@ -34,7 +34,7 @@ contributions are welcome.
 
 Follow the steps outlined below to import your custom dictionary into Yomitan:
 
-1.  Download a pre-built binary for Linux, Mac OS X or Windows from the [project
+1.  Download a pre-built binary for Linux or Windows from the [project
     page](https://github.com/themoeway/yomitan-import/releases).
 2.  Launch the `yomitan-gtk` executable after extracting the entire archive (or `yomitan` from the command line).
 3.  Specify the source path of the dictionary you wish to convert.
