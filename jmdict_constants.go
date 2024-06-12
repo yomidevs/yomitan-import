@@ -9,7 +9,7 @@ const (
 	edrdgAttribution = "This publication has included material from the JMdict (EDICT, etc.) dictionary files in accordance with the licence provisions of the Electronic Dictionaries Research Group. See http://www.edrdg.org/"
 
 	prioritySymbol  = "★"
-	rareFormSymbol = "🅁"
+	rareSymbol = "🅁"
 	irregularSymbol = "⚠"
 	outdatedSymbol  = "⛬"
 	defaultSymbol   = "㊒"
