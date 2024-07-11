@@ -1,6 +1,8 @@
 name: Build and Release
 
-on: push
+on:
+  push:
+  pull_request:
 
 jobs:
   build-publish:
@@ -50,6 +52,5 @@ jobs:
           files: |
             yomitan-import-linux.zip
             yomitan-import-windows.zip
-          draft: true
           generate_release_notes: true
           token: ${{ secrets.GITHUB_TOKEN }}
