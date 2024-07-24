@@ -262,6 +262,7 @@ func jmdictExportDb(inputPath string, outputPath string, languageName string, ti
 		title = "JMdict"
 	}
 	jmdictDate := jmdictPublicationDate(dictionary)
+	title = title + " [" + jmdictDate + "]"
 
 	index := dbIndex{
 		Title:       title,
