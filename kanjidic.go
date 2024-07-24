@@ -108,7 +108,7 @@ func kanjidicExportDb(inputPath, outputPath, language, title string, stride int,
 		title = "KANJIDIC2"
 	}
 	kanjidicDate := dict.Header.DatabaseVersion
-	title = title + "[" + kanjidicDate + "]"
+	title = title + " [" + kanjidicDate + "]"
 
 	tags := dbTagList{
 		dbTag{Name: "jouyou", Notes: "included in list of regular-use characters", Category: "frequent", Order: -5},

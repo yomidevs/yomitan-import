@@ -117,7 +117,7 @@ func jmnedictExportDb(inputPath, outputPath, language, title string, stride int,
 		title = "JMnedict"
 	}
 	jmnedictDate := jmnedictPublicationDate(dictionary)
-	title = title + "[" + jmnedictDate + "]"
+	title = title + " [" + jmnedictDate + "]"
 
 	index := dbIndex{
 		Title:       title,
