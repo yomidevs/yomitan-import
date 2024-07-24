@@ -1,3 +1,9 @@
 yomichan-gtk/yomichan-gtk*
 yomichan/yomichan*
 build
+
+yomitan-import-linux
+yomitan-import-windows
+
+yomitan-import-linux.zip
+yomitan-import-windows.zip

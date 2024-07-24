@@ -64,6 +64,7 @@ func customDbTags() []dbTag {
 	return []dbTag{
 		dbTag{Name: priorityTagName, Order: -10, Score: 10, Category: "popular", Notes: "high priority term"},
 		dbTag{Name: rareKanjiTagName, Order: 0, Score: -5, Category: "archaism", Notes: "rarely-used kanji form of this expression"},
+		dbTag{Name: rareKanaTagName, Order: 0, Score: -5, Category: "archaism", Notes: "rarely-used kana form of this expression"},
 		dbTag{Name: irregularTagName, Order: 0, Score: -5, Category: "archaism", Notes: "irregular form of this expression"},
 		dbTag{Name: outdatedTagName, Order: 0, Score: -5, Category: "archaism", Notes: "outdated form of this expression"},
 		dbTag{Name: "ichi", Order: -2, Score: 0, Category: "frequent", Notes: "included in Ichimango Goi Bunruishuu (１万語語彙分類集)"},
@@ -82,6 +83,7 @@ func knownEntityTags() []dbTag {
 		dbTag{Name: "gikun", Order: 0, Score: 0, Category: ""}, // gikun (meaning as reading) or jukujikun (special kanji reading)
 		dbTag{Name: "ik", Order: 0, Score: -5, Category: ""},   // word containing irregular kana usage
 		dbTag{Name: "ok", Order: 0, Score: -5, Category: ""},   // out-dated or obsolete kana usage
+		dbTag{Name: "rk", Order: 0, Score: -5, Category: ""},   // rarely used kana form
 		dbTag{Name: "sk", Order: 0, Score: -5, Category: ""},   // search-only kana form
 
 		// <ke_inf> kanji info
@@ -258,11 +260,14 @@ func knownEntityTags() []dbTag {
 		dbTag{Name: "biochem", Order: 0, Score: 0, Category: ""},  // biochemistry
 		dbTag{Name: "biol", Order: 0, Score: 0, Category: ""},     // biology
 		dbTag{Name: "bot", Order: 0, Score: 0, Category: ""},      // botany
+		dbTag{Name: "boxing", Order: 0, Score: 0, Category: ""},   // boxing
 		dbTag{Name: "Buddh", Order: 0, Score: 0, Category: ""},    // Buddhism
 		dbTag{Name: "bus", Order: 0, Score: 0, Category: ""},      // business
 		dbTag{Name: "cards", Order: 0, Score: 0, Category: ""},    // card games
 		dbTag{Name: "chem", Order: 0, Score: 0, Category: ""},     // chemistry
+		dbTag{Name: "chmyth", Order: 0, Score: 0, Category: ""},   // Chinese mythology
 		dbTag{Name: "Christn", Order: 0, Score: 0, Category: ""},  // Christianity
+		dbTag{Name: "civeng", Order: 0, Score: 0, Category: ""},   // civil engineering
 		dbTag{Name: "cloth", Order: 0, Score: 0, Category: ""},    // clothing
 		dbTag{Name: "comp", Order: 0, Score: 0, Category: ""},     // computing
 		dbTag{Name: "cryst", Order: 0, Score: 0, Category: ""},    // crystallography
@@ -274,6 +279,7 @@ func knownEntityTags() []dbTag {
 		dbTag{Name: "embryo", Order: 0, Score: 0, Category: ""},   // embryology
 		dbTag{Name: "engr", Order: 0, Score: 0, Category: ""},     // engineering
 		dbTag{Name: "ent", Order: 0, Score: 0, Category: ""},      // entomology
+		dbTag{Name: "figskt", Order: 0, Score: 0, Category: ""},   // figure skating
 		dbTag{Name: "film", Order: 0, Score: 0, Category: ""},     // film
 		dbTag{Name: "finc", Order: 0, Score: 0, Category: ""},     // finance
 		dbTag{Name: "fish", Order: 0, Score: 0, Category: ""},     // fishing
@@ -289,6 +295,8 @@ func knownEntityTags() []dbTag {
 		dbTag{Name: "grmyth", Order: 0, Score: 0, Category: ""},   // Greek mythology
 		dbTag{Name: "hanaf", Order: 0, Score: 0, Category: ""},    // hanafuda
 		dbTag{Name: "horse", Order: 0, Score: 0, Category: ""},    // horse racing
+		dbTag{Name: "internet", Order: 0, Score: 0, Category: ""}, // Internet
+		dbTag{Name: "jpmyth", Order: 0, Score: 0, Category: ""},   // Japanese mythology
 		dbTag{Name: "kabuki", Order: 0, Score: 0, Category: ""},   // kabuki
 		dbTag{Name: "law", Order: 0, Score: 0, Category: ""},      // law
 		dbTag{Name: "ling", Order: 0, Score: 0, Category: ""},     // linguistics
@@ -301,7 +309,9 @@ func knownEntityTags() []dbTag {
 		dbTag{Name: "med", Order: 0, Score: 0, Category: ""},      // medicine
 		dbTag{Name: "met", Order: 0, Score: 0, Category: ""},      // meteorology
 		dbTag{Name: "mil", Order: 0, Score: 0, Category: ""},      // military
+		dbTag{Name: "min", Order: 0, Score: 0, Category: ""},      // mineralogy
 		dbTag{Name: "mining", Order: 0, Score: 0, Category: ""},   // mining
+		dbTag{Name: "motor", Order: 0, Score: 0, Category: ""},    // motorsport
 		dbTag{Name: "music", Order: 0, Score: 0, Category: ""},    // music
 		dbTag{Name: "noh", Order: 0, Score: 0, Category: ""},      // noh
 		dbTag{Name: "ornith", Order: 0, Score: 0, Category: ""},   // ornithology
@@ -314,6 +324,7 @@ func knownEntityTags() []dbTag {
 		dbTag{Name: "physiol", Order: 0, Score: 0, Category: ""},  // physiology
 		dbTag{Name: "politics", Order: 0, Score: 0, Category: ""}, // politics
 		dbTag{Name: "print", Order: 0, Score: 0, Category: ""},    // printing
+		dbTag{Name: "prowres", Order: 0, Score: 0, Category: ""},  // professional wrestling
 		dbTag{Name: "psy", Order: 0, Score: 0, Category: ""},      // psychiatry
 		dbTag{Name: "psyanal", Order: 0, Score: 0, Category: ""},  // psychoanalysis
 		dbTag{Name: "psych", Order: 0, Score: 0, Category: ""},    // psychology
@@ -326,9 +337,11 @@ func knownEntityTags() []dbTag {
 		dbTag{Name: "stat", Order: 0, Score: 0, Category: ""},     // statistics
 		dbTag{Name: "stockm", Order: 0, Score: 0, Category: ""},   // stock market
 		dbTag{Name: "sumo", Order: 0, Score: 0, Category: ""},     // sumo
+		dbTag{Name: "surg", Order: 0, Score: 0, Category: ""},     // surgery
 		dbTag{Name: "telec", Order: 0, Score: 0, Category: ""},    // telecommunications
 		dbTag{Name: "tradem", Order: 0, Score: 0, Category: ""},   // trademark
 		dbTag{Name: "tv", Order: 0, Score: 0, Category: ""},       // television
+		dbTag{Name: "vet", Order: 0, Score: 0, Category: ""},      // veterinary terms
 		dbTag{Name: "vidg", Order: 0, Score: 0, Category: ""},     // video games
 		dbTag{Name: "zool", Order: 0, Score: 0, Category: ""},     // zoology
 

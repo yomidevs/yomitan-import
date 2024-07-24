@@ -168,27 +168,6 @@ func listAttr(lang string, listStyleType string, dataContent string) contentAttr
 	}
 }
 
-func needsStructuredContent(sense jmdict.JmdictSense, language string) bool {
-	for _, gloss := range sense.Glossary {
-		if glossContainsLanguage(gloss, language) && gloss.Type != nil {
-			return true
-		}
-	}
-	if len(sense.SourceLanguages) > 0 {
-		return true
-	} else if len(sense.Information) > 0 {
-		return true
-	} else if len(sense.Antonyms) > 0 {
-		return true
-	} else if len(sense.References) > 0 {
-		return true
-	} else if len(sense.Examples) > 0 {
-		return true
-	} else {
-		return false
-	}
-}
-
 func createGlossaryContent(sense jmdict.JmdictSense, meta jmdictMetadata) any {
 	glossaryContents := []any{}
 
@@ -287,7 +266,7 @@ func createGlossaryContent(sense jmdict.JmdictSense, meta jmdictMetadata) any {
 
 func createGlossary(sense jmdict.JmdictSense, meta jmdictMetadata) []any {
 	glossary := []any{}
-	if meta.extraMode && needsStructuredContent(sense, meta.language) {
+	if meta.extraMode {
 		glossary = append(glossary, createGlossaryContent(sense, meta))
 	} else {
 		for _, gloss := range sense.Glossary {
