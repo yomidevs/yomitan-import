@@ -238,6 +238,7 @@ func formsExportDb(inputPath, outputPath, languageName, title string, stride int
 	}
 
 	jmdictDate := jmdictPublicationDate(dictionary)
+	title = title + " [" + jmdictDate + "]"
 
 	index := dbIndex{
 		Title:       title,
