@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"strconv"
 
-	jmdict "github.com/themoeway/jmdict-go"
+	jmdict "github.com/yomidevs/jmdict-go"
 )
 
 func glossaryContainsLanguage(glossary []jmdict.JmdictGlossary, language string) bool {

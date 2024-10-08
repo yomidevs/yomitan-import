@@ -4,7 +4,7 @@ import (
 	"regexp"
 	"strings"
 
-	zig "github.com/themoeway/zero-epwing-go"
+	zig "github.com/yomidevs/zero-epwing-go"
 )
 
 type koujienExtractor struct {

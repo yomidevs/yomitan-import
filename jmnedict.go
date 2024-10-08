@@ -4,7 +4,7 @@ import (
 	"os"
 	"regexp"
 
-	jmdict "github.com/themoeway/jmdict-go"
+	jmdict "github.com/yomidevs/jmdict-go"
 )
 
 func jmnedictPublicationDate(dictionary jmdict.Jmnedict) string {

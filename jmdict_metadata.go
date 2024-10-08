@@ -3,7 +3,7 @@ package yomitan
 import (
 	"strings"
 
-	jmdict "github.com/themoeway/jmdict-go"
+	jmdict "github.com/yomidevs/jmdict-go"
 	"golang.org/x/exp/slices"
 )
 

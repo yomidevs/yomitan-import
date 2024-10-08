@@ -4,9 +4,9 @@
 >
 > The primary goal is to **keep the project alive by providing long-term support and fixing bugs**. (Feature improvements are considered secondary.)
 >
-> Since this is a distributed effort, we highly welcome new contributors! Feel free to browse the issue tracker, and you can find us on [TheMoeWay Discord](https://discord.gg/nhqjydaR8j) at [#colab-tmw-projects](https://discord.com/channels/617136488840429598/1081538711742844980)
+> Since this is a distributed effort, we highly welcome new contributors! Feel free to browse the issue tracker, and you can find us on [Yomitan Discord](https://discord.gg/YkQrXW6TXF) at [#colab-tmw-projects](https://discord.com/channels/617136488840429598/1081538711742844980)
 
-Yomitan Import allows users of the [Yomitan](https://github.com/themoeway/yomitan) extension to import custom
+Yomitan Import allows users of the [Yomitan](https://github.com/yomidevs/yomitan) extension to import custom
 dictionary files. It currently supports the following formats:
 
 - [JMdict XML](http://www.edrdg.org/jmdict/edict_doc.html)
@@ -35,7 +35,7 @@ contributions are welcome.
 Follow the steps outlined below to import your custom dictionary into Yomitan:
 
 1.  Download a pre-built binary for Linux or Windows from the [project
-    page](https://github.com/themoeway/yomitan-import/releases).
+    page](https://github.com/yomidevs/yomitan-import/releases).
 2.  Launch the `yomitan-gtk` executable after extracting the entire archive (or `yomitan` from the command line).
 3.  Specify the source path of the dictionary you wish to convert.
 4.  Specify the target path of the dictionary ZIP archive that you wish to create.

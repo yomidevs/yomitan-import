@@ -1,6 +1,6 @@
 #!/bin/bash
 
-go get github.com/themoeway/yomitan-import/tree/master/yomitan
+go get github.com/yomidevs/yomitan-import/tree/master/yomitan
 
 mkdir -p src
 mkdir -p dst
