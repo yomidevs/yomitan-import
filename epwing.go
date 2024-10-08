@@ -6,7 +6,7 @@ import (
 	"strconv"
 	"strings"
 
-	zig "github.com/themoeway/zero-epwing-go"
+	zig "github.com/yomidevs/zero-epwing-go"
 )
 
 type epwingExtractor interface {

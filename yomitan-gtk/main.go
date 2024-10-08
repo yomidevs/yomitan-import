@@ -7,7 +7,7 @@ import (
 	"github.com/andlabs/ui"
 	_ "github.com/andlabs/ui/winmanifest"
 
-	yomitan "github.com/themoeway/yomitan-import"
+	yomitan "github.com/yomidevs/yomitan-import"
 )
 
 func main() {

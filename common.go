@@ -161,7 +161,7 @@ func (index *dbIndex) setDefaults() {
 		index.Author = "yomitan-import"
 	}
 	if index.Url == "" {
-		index.Url = "https://github.com/themoeway/yomitan-import"
+		index.Url = "https://github.com/yomidevs/yomitan-import"
 	}
 }
 

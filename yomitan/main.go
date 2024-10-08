@@ -7,12 +7,12 @@ import (
 	"os"
 	"path"
 
-	yomitan "github.com/themoeway/yomitan-import"
+	yomitan "github.com/yomidevs/yomitan-import"
 )
 
 func usage() {
 	fmt.Fprintf(os.Stderr, "Usage: %s [options] input-path output-path\n", path.Base(os.Args[0]))
-	fmt.Fprint(os.Stderr, "https://github.com/themoeway/yomitan-import/\n\n")
+	fmt.Fprint(os.Stderr, "https://github.com/yomidevs/yomitan-import/\n\n")
 	fmt.Fprint(os.Stderr, "Parameters:\n")
 	flag.PrintDefaults()
 }
