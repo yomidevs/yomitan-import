@@ -7,18 +7,20 @@ on:
 jobs:
   build-publish:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     steps:
       - name: Checkout Code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
 
       - name: Set up Go
-        uses: actions/setup-go@v5
+        uses: actions/setup-go@v6
         with:
           go-version: 1.21.0
         id: go
 
       - name: Set up MinGW
-        uses: egor-tensin/setup-mingw@v2
+        uses: egor-tensin/setup-mingw@v3
 
       - name: Install Packages
         run: |
@@ -30,7 +32,7 @@ jobs:
           ./scripts/build_linux.sh
 
       - name: Upload Linux Artifact
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v6
         with:
           path: yomitan-import-linux
           name: yomitan-import-linux
@@ -40,7 +42,7 @@ jobs:
           ./scripts/build_windows.sh
 
       - name: Upload Windows Artifact
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v6
         with:
           path: yomitan-import-windows
           name: yomitan-import-windows
