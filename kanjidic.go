@@ -161,11 +161,18 @@ func kanjidicExportDb(inputPath, outputPath, language, title string, stride int,
 		"tag":   tags.crush(),
 	}
 
+	var targetLanguage = langTag
+	if targetLanguage == "" {
+		targetLanguage = "en"
+	}
+
 	index := dbIndex{
 		Title:       title,
 		Revision:    "kanjidic2." + kanjidicDate,
 		Sequenced:   false,
 		Attribution: edrdgAttribution,
+		SourceLanguage: "ja",
+		TargetLanguage: targetLanguage,
 	}
 
 	return writeDb(

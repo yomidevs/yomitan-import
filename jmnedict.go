@@ -124,6 +124,8 @@ func jmnedictExportDb(inputPath, outputPath, language, title string, stride int,
 		Revision:    "JMnedict." + jmnedictDate,
 		Sequenced:   true,
 		Attribution: edrdgAttribution,
+		SourceLanguage: "ja",
+		TargetLanguage: "en",
 	}
 
 	return writeDb(
