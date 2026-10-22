@@ -151,6 +151,8 @@ type dbIndex struct {
 	Url         string `json:"url"`
 	Description string `json:"description"`
 	Attribution string `json:"attribution"`
+	SourceLanguage string `json:"sourceLanguage"`
+	TargetLanguage string `json:"targetLanguage"`
 }
 
 func (index *dbIndex) setDefaults() {

@@ -275,6 +275,8 @@ func jmdictExportDb(inputPath string, outputPath string, languageName string, ti
 		Revision:    "JMdict." + jmdictDate,
 		Sequenced:   true,
 		Attribution: edrdgAttribution,
+		SourceLanguage: "ja",
+		TargetLanguage: ISOtoHTML[langNameToCode[languageName]],
 	}
 
 	return writeDb(

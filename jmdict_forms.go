@@ -245,6 +245,8 @@ func formsExportDb(inputPath, outputPath, languageName, title string, stride int
 		Revision:    "JMdict." + jmdictDate,
 		Sequenced:   true,
 		Attribution: edrdgAttribution,
+		SourceLanguage: "ja",
+		TargetLanguage: "ja",
 	}
 
 	return writeDb(

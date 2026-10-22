@@ -79,30 +79,35 @@ var sourceLangTypeCodeToType = map[LangCode]string{
 var langCodeToName = map[LangCode]string{
 	LangCode{"eng", "afr"}: "Afrikaans",
 	LangCode{"eng", "ain"}: "Ainu",
-	LangCode{"eng", "alg"}: "Algonquian",
+	LangCode{"eng", "alb"}: "Albanian",
+	LangCode{"eng", "alg"}: "Algonquian languages",
 	LangCode{"eng", "amh"}: "Amharic",
 	LangCode{"eng", "ara"}: "Arabic",
-	LangCode{"eng", "arn"}: "Mapudungun",
-	LangCode{"eng", "bnt"}: "Bantu",
+	LangCode{"eng", "arm"}: "Armenian",
+	LangCode{"eng", "arn"}: "Mapudungun; Mapuche",
+	LangCode{"eng", "aze"}: "Azerbaijani",
+	LangCode{"eng", "ben"}: "Bengali",
+	LangCode{"eng", "bnt"}: "Bantu (Other)",
 	LangCode{"eng", "bre"}: "Breton",
 	LangCode{"eng", "bul"}: "Bulgarian",
 	LangCode{"eng", "bur"}: "Burmese",
 	LangCode{"eng", "chi"}: "Chinese",
-	LangCode{"eng", "chn"}: "Chinook Jargon",
+	LangCode{"eng", "chn"}: "Chinook jargon",
 	LangCode{"eng", "cze"}: "Czech",
 	LangCode{"eng", "dan"}: "Danish",
-	LangCode{"eng", "dut"}: "Dutch",
+	LangCode{"eng", "div"}: "Divehi; Dhivehi; Maldivian",
+	LangCode{"eng", "dut"}: "Dutch; Flemish",
 	LangCode{"eng", "eng"}: "English",
 	LangCode{"eng", "epo"}: "Esperanto",
 	LangCode{"eng", "est"}: "Estonian",
-	LangCode{"eng", "fil"}: "Filipino",
+	LangCode{"eng", "fil"}: "Filipino; Pilipino",
 	LangCode{"eng", "fin"}: "Finnish",
 	LangCode{"eng", "fre"}: "French",
 	LangCode{"eng", "geo"}: "Georgian",
 	LangCode{"eng", "ger"}: "German",
 	LangCode{"eng", "glg"}: "Galician",
-	LangCode{"eng", "grc"}: "Ancient Greek",
-	LangCode{"eng", "gre"}: "Modern Greek",
+	LangCode{"eng", "grc"}: "Greek, Ancient (to 1453)",
+	LangCode{"eng", "gre"}: "Greek, Modern (1453-)",
 	LangCode{"eng", "haw"}: "Hawaiian",
 	LangCode{"eng", "heb"}: "Hebrew",
 	LangCode{"eng", "hin"}: "Hindi",
@@ -110,17 +115,22 @@ var langCodeToName = map[LangCode]string{
 	LangCode{"eng", "ice"}: "Icelandic",
 	LangCode{"eng", "ind"}: "Indonesian",
 	LangCode{"eng", "ita"}: "Italian",
-	LangCode{"eng", "khm"}: "Khmer",
+	LangCode{"eng", "kaz"}: "Kazakh",
+	LangCode{"eng", "khm"}: "Central Khmer",
+	LangCode{"eng", "kir"}: "Kirghiz; Kyrgyz",
 	LangCode{"eng", "kor"}: "Korean",
 	LangCode{"eng", "kur"}: "Kurdish",
+	LangCode{"eng", "lao"}: "Lao",
 	LangCode{"eng", "lat"}: "Latin",
 	LangCode{"eng", "lit"}: "Lithuanian",
 	LangCode{"eng", "mal"}: "Malayalam",
 	LangCode{"eng", "mao"}: "Maori",
+	LangCode{"eng", "mas"}: "Masai",
 	LangCode{"eng", "may"}: "Malay",
+	LangCode{"eng", "mlg"}: "Malagasy",
 	LangCode{"eng", "mnc"}: "Manchu",
-	LangCode{"eng", "mol"}: "Moldavian", // ISO 639 deprecated (https://iso639-3.sil.org/code/mol)
 	LangCode{"eng", "mon"}: "Mongolian",
+	LangCode{"eng", "nep"}: "Nepali",
 	LangCode{"eng", "nor"}: "Norwegian",
 	LangCode{"eng", "per"}: "Persian",
 	LangCode{"eng", "pol"}: "Polish",
@@ -129,17 +139,20 @@ var langCodeToName = map[LangCode]string{
 	LangCode{"eng", "rus"}: "Russian",
 	LangCode{"eng", "san"}: "Sanskrit",
 	LangCode{"eng", "scr"}: "Croatian", // Code doesn't seem to exist in ISO 639. Should be "hrv" instead? (https://iso639-3.sil.org/code/hrv)
-	LangCode{"eng", "slo"}: "Slovak",
 	LangCode{"eng", "slv"}: "Slovenian",
+	LangCode{"eng", "smo"}: "Samoan",
 	LangCode{"eng", "som"}: "Somali",
-	LangCode{"eng", "spa"}: "Spanish",
+	LangCode{"eng", "sot"}: "Sotho, Southern",
+	LangCode{"eng", "spa"}: "Spanish; Castilian",
 	LangCode{"eng", "swa"}: "Swahili",
 	LangCode{"eng", "swe"}: "Swedish",
 	LangCode{"eng", "tah"}: "Tahitian",
 	LangCode{"eng", "tam"}: "Tamil",
+	LangCode{"eng", "tgk"}: "Tajik",
 	LangCode{"eng", "tgl"}: "Tagalog",
 	LangCode{"eng", "tha"}: "Thai",
 	LangCode{"eng", "tib"}: "Tibetan",
+	LangCode{"eng", "tuk"}: "Turkmen",
 	LangCode{"eng", "tur"}: "Turkish",
 	LangCode{"eng", "ukr"}: "Ukrainian",
 	LangCode{"eng", "urd"}: "Urdu",
@@ -152,30 +165,35 @@ var langCodeToName = map[LangCode]string{
 var ISOtoHTML = map[string]string{
 	"afr": "af",  // Afrikaans
 	"ain": "ain", // Ainu
-	"alg": "alg", // Algonquian
+	"alb": "sq", // Albanian
+	"alg": "alg", // Algonquian languages
 	"amh": "am",  // Amharic
 	"ara": "ar",  // Arabic
-	"arn": "arn", // Mapudungun
-	"bnt": "bnt", // Bantu
+	"arm": "hy", // Armenian
+	"arn": "arn", // Mapudungun; Mapuche
+	"aze": "az", // Azerbaijani
+	"ben": "bn", // Bengali
+	"bnt": "bnt", // Bantu (Other)
 	"bre": "br",  // Breton
 	"bul": "bg",  // Bulgarian
 	"bur": "my",  // Burmese
 	"chi": "zh",  // Chinese
-	"chn": "chn", // Chinook Jargon
+	"chn": "chn", // Chinook jargon
 	"cze": "cs",  // Czech
 	"dan": "da",  // Danish
-	"dut": "nl",  // Dutch
+	"div": "dv",  // Divehi; Dhivehi; Maldivian
+	"dut": "nl",  // Dutch; Flemish
 	"eng": "en",  // English
 	"epo": "eo",  // Esperanto
 	"est": "et",  // Estonian
-	"fil": "fil", // Filipino
+	"fil": "fil", // Filipino; Pilipino
 	"fin": "fi",  // Finnish
 	"fre": "fr",  // French
 	"geo": "ka",  // Georgian
 	"ger": "de",  // German
 	"glg": "gl",  // Galician
-	"grc": "grc", // Ancient Greek
-	"gre": "el",  // Modern Greek
+	"grc": "grc", // Greek, Ancient (to 1453)
+	"gre": "el",  // Greek, Modern (1453-)
 	"haw": "haw", // Hawaiian
 	"heb": "he",  // Hebrew
 	"hin": "hi",  // Hindi
@@ -184,17 +202,22 @@ var ISOtoHTML = map[string]string{
 	"ind": "id",  // Indonesian
 	"ita": "it",  // Italian
 	"jpn": "ja",  // Japanese
-	"khm": "km",  // Khmer
+	"kaz": "kk",  // Kazakh
+	"khm": "km",  // Central Khmer
+	"kir": "ky",  // Kirghiz; Kyrgyz
 	"kor": "ko",  // Korean
 	"kur": "ku",  // Kurdish
+	"lao": "lo",  // Lao
 	"lat": "la",  // Latin
 	"lit": "lt",  // Lithuanian
 	"mal": "ml",  // Malayalam
 	"mao": "mi",  // Maori
+	"mas": "mas",  // Masai
 	"may": "ms",  // Malay
+	"mlg": "mg",  // Malagasy
 	"mnc": "mnc", // Manchu
-	"mol": "ro",  // Moldavian
 	"mon": "mn",  // Mongolian
+	"nep": "ne",  // Nepali
 	"nor": "no",  // Norwegian
 	"per": "fa",  // Persian
 	"pol": "pl",  // Polish
@@ -203,17 +226,20 @@ var ISOtoHTML = map[string]string{
 	"rus": "ru",  // Russian
 	"san": "sa",  // Sanskrit
 	"scr": "hr",  // Croatian
-	"slo": "sk",  // Slovak
 	"slv": "sl",  // Slovenian
+	"smo": "sm",  // Samoan
 	"som": "so",  // Somali
-	"spa": "es",  // Spanish
+	"sot": "sot",  // Sotho, Southern
+	"spa": "es",  // Spanish; Castilian
 	"swa": "sw",  // Swahili
 	"swe": "sv",  // Swedish
 	"tah": "ty",  // Tahitian
 	"tam": "ta",  // Tamil
+	"tgk": "tg",  // Tajik
 	"tgl": "tl",  // Tagalog
 	"tha": "th",  // Thai
 	"tib": "bo",  // Tibetan
+	"tuk": "tk",  // Turkmen
 	"tur": "tr",  // Turkish
 	"ukr": "uk",  // Ukrainian
 	"urd": "ur",  // Urdu
