@@ -165,30 +165,35 @@ var langCodeToName = map[LangCode]string{
 var ISOtoHTML = map[string]string{
 	"afr": "af",  // Afrikaans
 	"ain": "ain", // Ainu
-	"alg": "alg", // Algonquian
+	"alb": "sq", // Albanian
+	"alg": "alg", // Algonquian languages
 	"amh": "am",  // Amharic
 	"ara": "ar",  // Arabic
-	"arn": "arn", // Mapudungun
-	"bnt": "bnt", // Bantu
+	"arm": "hy", // Armenian
+	"arn": "arn", // Mapudungun; Mapuche
+	"aze": "az", // Azerbaijani
+	"ben": "bn", // Bengali
+	"bnt": "bnt", // Bantu (Other)
 	"bre": "br",  // Breton
 	"bul": "bg",  // Bulgarian
 	"bur": "my",  // Burmese
 	"chi": "zh",  // Chinese
-	"chn": "chn", // Chinook Jargon
+	"chn": "chn", // Chinook jargon
 	"cze": "cs",  // Czech
 	"dan": "da",  // Danish
-	"dut": "nl",  // Dutch
+	"div": "dv",  // Divehi; Dhivehi; Maldivian
+	"dut": "nl",  // Dutch; Flemish
 	"eng": "en",  // English
 	"epo": "eo",  // Esperanto
 	"est": "et",  // Estonian
-	"fil": "fil", // Filipino
+	"fil": "fil", // Filipino; Pilipino
 	"fin": "fi",  // Finnish
 	"fre": "fr",  // French
 	"geo": "ka",  // Georgian
 	"ger": "de",  // German
 	"glg": "gl",  // Galician
-	"grc": "grc", // Ancient Greek
-	"gre": "el",  // Modern Greek
+	"grc": "grc", // Greek, Ancient (to 1453)
+	"gre": "el",  // Greek, Modern (1453-)
 	"haw": "haw", // Hawaiian
 	"heb": "he",  // Hebrew
 	"hin": "hi",  // Hindi
@@ -197,17 +202,22 @@ var ISOtoHTML = map[string]string{
 	"ind": "id",  // Indonesian
 	"ita": "it",  // Italian
 	"jpn": "ja",  // Japanese
-	"khm": "km",  // Khmer
+	"kaz": "kk",  // Kazakh
+	"khm": "km",  // Central Khmer
+	"kir": "ky",  // Kirghiz; Kyrgyz
 	"kor": "ko",  // Korean
 	"kur": "ku",  // Kurdish
+	"lao": "lo",  // Lao
 	"lat": "la",  // Latin
 	"lit": "lt",  // Lithuanian
 	"mal": "ml",  // Malayalam
 	"mao": "mi",  // Maori
+	"mas": "mas",  // Masai
 	"may": "ms",  // Malay
+	"mlg": "mg",  // Malagasy
 	"mnc": "mnc", // Manchu
-	"mol": "ro",  // Moldavian
 	"mon": "mn",  // Mongolian
+	"nep": "ne",  // Nepali
 	"nor": "no",  // Norwegian
 	"per": "fa",  // Persian
 	"pol": "pl",  // Polish
@@ -216,17 +226,20 @@ var ISOtoHTML = map[string]string{
 	"rus": "ru",  // Russian
 	"san": "sa",  // Sanskrit
 	"scr": "hr",  // Croatian
-	"slo": "sk",  // Slovak
 	"slv": "sl",  // Slovenian
+	"smo": "sm",  // Samoan
 	"som": "so",  // Somali
-	"spa": "es",  // Spanish
+	"sot": "sot",  // Sotho, Southern
+	"spa": "es",  // Spanish; Castilian
 	"swa": "sw",  // Swahili
 	"swe": "sv",  // Swedish
 	"tah": "ty",  // Tahitian
 	"tam": "ta",  // Tamil
+	"tgk": "tg",  // Tajik
 	"tgl": "tl",  // Tagalog
 	"tha": "th",  // Thai
 	"tib": "bo",  // Tibetan
+	"tuk": "tk",  // Turkmen
 	"tur": "tr",  // Turkish
 	"ukr": "uk",  // Ukrainian
 	"urd": "ur",  // Urdu
