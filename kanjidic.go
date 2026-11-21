@@ -1,8 +1,10 @@
 package yomitan
 
 import (
+	"fmt"
 	"os"
 	"strconv"
+	"time"
 
 	jmdict "github.com/yomidevs/jmdict-go"
 )
@@ -81,9 +83,24 @@ func kanjidicExportDb(inputPath, outputPath, language, title string, stride int,
 	}
 	defer reader.Close()
 
+	created, _, err := dictionaryXMLMetadata(reader, "kanjidic2")
+	if err != nil {
+		return err
+	}
 	dict, err := jmdict.LoadKanjidic(reader)
 	if err != nil {
 		return err
+	}
+
+	kanjidicDate := dict.Header.DatabaseVersion
+	if kanjidicDate == "" {
+		date, err := time.Parse("2006-01-02", created)
+		if err != nil {
+			return fmt.Errorf("KANJIDIC2 has no database version and an invalid or missing creation date: %w", err)
+		}
+		// NG replaces the legacy header with a creation date. Keep the
+		// year/day-of-year revision so updates compare with legacy releases.
+		kanjidicDate = date.Format("2006-002")
 	}
 
 	var langTag string
@@ -107,7 +124,6 @@ func kanjidicExportDb(inputPath, outputPath, language, title string, stride int,
 	if title == "" {
 		title = "KANJIDIC2"
 	}
-	kanjidicDate := dict.Header.DatabaseVersion
 	title = title + " [" + kanjidicDate + "]"
 
 	tags := dbTagList{
