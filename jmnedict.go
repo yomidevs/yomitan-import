@@ -1,8 +1,10 @@
 package yomitan
 
 import (
+	"fmt"
 	"os"
 	"regexp"
+	"time"
 
 	jmdict "github.com/yomidevs/jmdict-go"
 )
@@ -88,15 +90,45 @@ func jmnedictExportDb(inputPath, outputPath, language, title string, stride int,
 	}
 	defer reader.Close()
 
+	created, version, err := dictionaryXMLMetadata(reader, "JMnedict")
+	if err != nil {
+		return err
+	}
 	dictionary, entities, err := jmdict.LoadJmnedictNoTransform(reader)
 	if err != nil {
 		return err
 	}
 
+	jmnedictDate := jmnedictPublicationDate(dictionary)
+	if created != "" {
+		date, err := time.Parse("2006-01-02", created)
+		if err != nil {
+			return fmt.Errorf("invalid JMnedict creation date: %w", err)
+		}
+		jmnedictDate = date.Format("2006-01-02")
+	} else if version != "" && jmnedictDate == "unknown" {
+		return fmt.Errorf("JMnedict version %s is missing its creation date", version)
+	}
+
+	// NG calls the same name type "org". Keep existing tags in both term
+	// banks and tag definitions, including for generic-name grouping.
+	if notes, ok := entities["org"]; ok {
+		if _, exists := entities["organization"]; !exists {
+			entities["organization"] = notes
+		}
+		delete(entities, "org")
+	}
 	genericTermInfo := newGenericTermInfo()
 
 	terms := dbTermList{}
 	for _, entry := range dictionary.Entries {
+		for _, sense := range entry.Translations {
+			for i, nameType := range sense.NameTypes {
+				if nameType == "org" {
+					sense.NameTypes[i] = "organization"
+				}
+			}
+		}
 		headwords := jmnedictHeadwords(entry)
 		for _, headword := range headwords {
 			newTerms := jmnedictTerms(headword, entry, genericTermInfo)
@@ -116,7 +148,6 @@ func jmnedictExportDb(inputPath, outputPath, language, title string, stride int,
 	if title == "" {
 		title = "JMnedict"
 	}
-	jmnedictDate := jmnedictPublicationDate(dictionary)
 	title = title + " [" + jmnedictDate + "]"
 
 	index := dbIndex{

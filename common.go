@@ -324,6 +324,26 @@ func detectFormat(path string) (string, error) {
 		}
 	}
 
+	ext := filepath.Ext(path)
+	if info.Mode().IsRegular() && (ext == "" || strings.EqualFold(ext, ".xml")) {
+		file, err := os.Open(path)
+		if err != nil {
+			return "", err
+		}
+		defer file.Close()
+
+		// Only inspect the XML prologue and root when guessing a format.
+		root, err := dictionaryXMLRoot(file)
+		if err == nil {
+			switch root.Name.Local {
+			case "JMnedict":
+				return "enamdict", nil
+			case "kanjidic2":
+				return "kanjidic", nil
+			}
+		}
+	}
+
 	return "", errors.New("unrecognized dictionary format")
 }
 
